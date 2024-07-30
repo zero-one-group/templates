@@ -8,6 +8,7 @@ title: 'React SPA'
 # REQUIRED: Description of what the template is for and other relevant information.
 description: 'Vite React application with preconfigured Tailwind CSS.'
 
+# Destination path for the package.
 destination: 'apps/[name]'
 
 # Mapping of variables that will be interpolated and rendered within template files.
