@@ -1,0 +1,18 @@
+# https://moonrepo.dev/docs/config/template
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/template.json
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+# REQUIRED: Name of the template in a human readable format.
+title: 'React SPA'
+
+# REQUIRED: Description of what the template is for and other relevant information.
+description: 'Vite React application with preconfigured Tailwind CSS.'
+
+# Mapping of variables that will be interpolated and rendered within template files.
+# Users will be prompted to provide a value when running the generator.
+variables:
+  name:
+    type: 'string'
+    default: 'react-spa'
+    required: true
+    prompt: 'Package name?'
