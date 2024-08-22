@@ -6,16 +6,28 @@ $schema: 'https://moonrepo.dev/schemas/template.json'
 title: 'React SPA'
 
 # REQUIRED: Description of what the template is for and other relevant information.
-description: 'Vite React application with preconfigured Tailwind CSS.'
+description: 'Vite React application with preconfigured Tailwind CSS and React Router.'
 
 # Destination path for the package.
-destination: 'apps/[name]'
+destination: 'apps/[package_id]'
 
 # Mapping of variables that will be interpolated and rendered within template files.
 # Users will be prompted to provide a value when running the generator.
 variables:
-  name:
+  package_id:
     type: 'string'
-    default: 'react-spa'
+    default: 'frontend'
+    prompt: 'Package identifier?'
     required: true
+
+  package_name:
+    type: 'string'
+    default: 'frontend-application'
     prompt: 'Package name?'
+    required: true
+
+  package_description:
+    type: 'string'
+    default: 'My frontend application'
+    prompt: 'Package description?'
+    required: true

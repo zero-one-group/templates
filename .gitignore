@@ -12,8 +12,9 @@ node_modules
 dist
 dist-ssr
 *.local
-/tmp
-/.husky
+.husky
+tmp/
+vendor/
 
 # Editor directories and files
 .vscode/*
