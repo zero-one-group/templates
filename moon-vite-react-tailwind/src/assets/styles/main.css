@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 @layer base {
-    html,
-    body {
-        @apply size-full min-h-screen antialiased scroll-smooth;
-    }
+  html,
+  body {
+    @apply size-full min-h-screen antialiased scroll-smooth;
+  }
 }
 
-/* Debug element */
-.debug {
+@layer utilities {
+  /* Debug element */
+  .debug {
     border-width: 1px;
     border-style: dashed;
     border-color: #f87171;
+  }
 }

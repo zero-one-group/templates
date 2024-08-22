@@ -1,3 +1,4 @@
+import { cn } from '@myorg/shared-ui'
 import { useStore } from '@nanostores/react'
 import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { CookiesProvider, useCookies } from 'react-cookie'
@@ -10,7 +11,6 @@ import {
   saveAuthState,
 } from '#/context/stores/auth.store'
 import type { AuthStore, UserData } from '#/context/stores/auth.store'
-import { cn } from '#/utils/helper'
 
 type AuthContext = {
   login: (identity: string, password: string) => Promise<UserData | null>
@@ -27,7 +27,7 @@ const defaultAuthContext: AuthContext = {
   logout: () => {},
 }
 
-export const AuthContext = createContext(defaultAuthContext)
+const AuthContext = createContext(defaultAuthContext)
 
 interface AppProviderProps {
   children: React.ReactNode
@@ -36,10 +36,7 @@ interface AppProviderProps {
 
 const COOKIE_NAME = 'auth_session'
 const COOKIE_LIFETIME = 60 * 60 * 24 * 7 // 7 days
-const COOKIE_OPTIONS: Omit<CookieSetOptions, 'maxAge'> = {
-  path: '/',
-  sameSite: 'strict',
-}
+const COOKIE_OPTIONS: Omit<CookieSetOptions, 'maxAge'> = { path: '/', sameSite: 'strict' }
 
 /**
  * Provides the AppProvider component that manages the authentication state and context for the application.
@@ -52,7 +49,7 @@ const COOKIE_OPTIONS: Omit<CookieSetOptions, 'maxAge'> = {
  *
  * The AppProvider component should be used to wrap the entire application to make the AuthContext available.
  */
-export default function AppProvider({ children, debugScreenSize }: AppProviderProps) {
+function AppProvider({ children, debugScreenSize }: AppProviderProps) {
   const [cookies, setCookie, removeCookie] = useCookies([COOKIE_NAME])
   const apiRef = useRef(useApiClient())
   const authState = useStore(authStore)
@@ -160,3 +157,6 @@ export default function AppProvider({ children, debugScreenSize }: AppProviderPr
     </CookiesProvider>
   )
 }
+
+export { AuthContext }
+export default AppProvider
