@@ -13,6 +13,8 @@ dist
 dist-ssr
 *.local
 .husky
+.output/
+build/
 tmp/
 vendor/
 

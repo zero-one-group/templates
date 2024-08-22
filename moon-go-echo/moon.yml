@@ -9,11 +9,11 @@ stack: backend
 tags: ['app']
 
 # Overrides the name (identifier) of the project
-id: 'go-app'
+id: '{{ package_id | kebab_case }}'
 
 project:
-  name: go-app-echo
-  description: 'Golang application'
+  name: '{{ package_name | kebab_case }}'
+  description: '{{ package_description }}'
 
 # File groups defined in .moon/tasks.yml will be inherited by all projects.
 # @see: https://moonrepo.dev/docs/config/project#filegroups
