@@ -41,9 +41,10 @@ const ChartContainer = React.forwardRef<
 >(({ id, className, children, config, ...props }, ref) => {
   const uniqueId = React.useId()
   const chartId = `chart-${id || uniqueId.replace(/:/g, '')}`
+  const value = { config }
 
   return (
-    <ChartContext.Provider value={{ config }}>
+    <ChartContext.Provider value={value}>
       <div
         data-chart={chartId}
         ref={ref}
@@ -265,6 +266,7 @@ const ChartLegendContent = React.forwardRef<
       {payload.map((item) => {
         const key = `${nameKey || item.dataKey || 'value'}`
         const itemConfig = getPayloadConfigFromPayload(config, item, key)
+        const style = { backgroundColor: item.color }
 
         return (
           <div
@@ -276,12 +278,7 @@ const ChartLegendContent = React.forwardRef<
             {itemConfig?.icon && !hideIcon ? (
               <itemConfig.icon />
             ) : (
-              <div
-                className="h-2 w-2 shrink-0 rounded-[2px]"
-                style={{
-                  backgroundColor: item.color,
-                }}
-              />
+              <div className="h-2 w-2 shrink-0 rounded-[2px]" style={style} />
             )}
             {itemConfig?.label}
           </div>
