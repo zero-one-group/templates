@@ -22,22 +22,6 @@ export default defineConfig({
   },
   base: '/',
   root: resolve(__dirname),
-  // Uncomment the following line to use shared UI library.
-  // optimizeDeps: {
-  //   // Do not optimize internal workspace dependencies.
-  //   exclude: ['@myorg/shared-ui'],
-  // },
-  resolve: {
-    // Uncomment the following line to use shared UI library.
-    // alias: [
-    //   {
-    //     // Configure an alias for the package. So, we don't have to restart
-    //     // the Vite server each time when the former is performed.
-    //     find: '@myorg/shared-ui',
-    //     replacement: resolve(__dirname, '../../packages/shared-ui/src/index.ts'),
-    //   },
-    // ],
-  },
   build: {
     emptyOutDir: true,
     chunkSizeWarningLimit: 1024,

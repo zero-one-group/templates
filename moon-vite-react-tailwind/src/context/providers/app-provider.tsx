@@ -1,4 +1,3 @@
-import { cn } from '@myorg/shared-ui'
 import { useStore } from '@nanostores/react'
 import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { CookiesProvider, useCookies } from 'react-cookie'
@@ -11,6 +10,7 @@ import {
   saveAuthState,
 } from '#/context/stores/auth.store'
 import type { AuthStore, UserData } from '#/context/stores/auth.store'
+import { cn } from '#/utils/helper'
 
 type AuthContext = {
   login: (identity: string, password: string) => Promise<UserData | null>
