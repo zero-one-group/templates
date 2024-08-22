@@ -9,11 +9,11 @@ stack: backend
 tags: ['app']
 
 # Overrides the name (identifier) of the project
-id: '{{ package_id | kebab_case }}'
+id: 'go-app'
 
 project:
-  name: '{{ package_name | kebab_case }}'
-  description: '{{ package_description }}'
+  name: go-app-echo
+  description: 'Golang application'
 
 # File groups defined in .moon/tasks.yml will be inherited by all projects.
 # @see: https://moonrepo.dev/docs/config/project#filegroups
@@ -21,15 +21,13 @@ project:
 
 tasks:
   dev:
-    command: air
-    args: ['-c', 'air.toml']
+    command: 'air -c air.toml'
     deps: [tidy]
     options:
       envFile: '/.env'
 
   build:
-    command: go
-    args: ['build', '-o build/go-app']
+    command: 'go build -o build/go-app'
 
   start:
     command: 'build/go-app'
