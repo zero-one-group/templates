@@ -27,10 +27,10 @@ tasks:
       envFile: '/.env'
 
   build:
-    command: 'go build -o build/go-app'
+    command: 'go build -o build/{{ package_id | kebab_case }}'
 
   start:
-    command: 'build/go-app'
+    command: 'build/{{ package_id | kebab_case }}'
     args: []
     options:
       cache: false

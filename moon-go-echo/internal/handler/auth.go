@@ -2,8 +2,8 @@ package handler
 
 import (
 	"github.com/labstack/echo/v4"
-	"go-app/internal/model"
 	"net/http"
+	"{{ package_id | kebab_case }}/internal/model"
 )
 
 func LoginHandler(c echo.Context) error {

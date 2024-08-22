@@ -1,11 +1,10 @@
 package handler
 
 import (
-	"go-app/internal/model"
+	"github.com/labstack/echo/v4"
 	"net/http"
 	"time"
-
-	"github.com/labstack/echo/v4"
+	"{{ package_id | kebab_case }}/internal/model"
 )
 
 func RootHandler(c echo.Context) error {

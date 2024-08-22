@@ -11,7 +11,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 
-	"go-app/internal/routes"
+	"{{ package_id | kebab_case }}/internal/routes"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/labstack/echo/v4"
-	"go-app/internal/handler"
+	"{{ package_id | kebab_case }}/internal/handler"
 )
 
 // SetupRoutes mengonfigurasi semua rute untuk aplikasi Echo
